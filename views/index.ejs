@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme Generator</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .meme-image {
+            height: 50vh; 
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5 mb-4 text-center">Meme Generator</h1>
+        <p class="lead mb-4">This website generates a random meme from meme subreddits in Reddit.</p>
+        <form action="/" method="POST" class="mb-4">
+            <div class="input-group">
+                <input type="text" name="subreddit" class="form-control" placeholder="Enter subreddit name or leave blank and press the button">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">Generate a meme</button>
+                </div>
+            </div>
+        </form>
+
+        <% if (image) { %>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h3 class="card-text"><%= title %></h3>
+                </div>
+                <img src="<%= image %>" class="card-img-top meme-image" alt="Meme Image">
+                <div class="card-body">
+                    <p class="card-text">Author: <%= user %></p>
+                    <p class="card-text">Subreddit: <%= sub %></p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
